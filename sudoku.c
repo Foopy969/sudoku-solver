@@ -45,14 +45,14 @@ int main(int argc, char *argv[])
         sudoku[i] = argv[1][i] - '0';
     }
 
-    int length = get_indices(sudoku, indices);
+    int length = get_indices();
 
     for (int i = 0; i < length; i += 1 - (sudoku[indices[i]] ? 0 : 2))
     {
         do
         {
             sudoku[indices[i]] += 1;
-        } while (!is_valid(sudoku));
+        } while (!is_valid());
         
         sudoku[indices[i]] %= 10;
     }
